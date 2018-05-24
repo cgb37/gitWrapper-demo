@@ -12,6 +12,7 @@ class UML_Gitwrapper {
 
 	public function __construct() {
 		$this->_gitWrapper = new GitWrapper();
+		$this->_gitWrapper->setPrivateKey('')
 
 		// Log to a file named "git.log"
 		$log = new Logger('git');

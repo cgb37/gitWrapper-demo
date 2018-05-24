@@ -60,6 +60,20 @@ RUN apt-get update \
 	&& apt-get install -y --no-install-recommends openssh-server \
 	&& echo "$SSH_PASSWD" | chpasswd
 
+# set up ssh keys
+RUN mkdir -p /root/.ssh
+COPY .docker/id_rsa /root/.ssh/
+COPY .docker/id_rsa.pub /root/.ssh/
+RUN chmod 600 /root/.ssh/id_rsa
+RUN ssh-keyscan -H bitbucket.org >> /root/.ssh/known_hosts
+#RUN eval "$(ssh-agent -s)"
+#RUN ssh-add /root/.ssh/id_rsa
+#RUN ssh -T git@github.org
+
+# Set global git user
+RUN git config --global user.email "cgb37@miami.edu"
+RUN git config --global user.name "Charles"
+
 # copy files needed to start docker
 COPY .docker/sshd_config /etc/ssh/
 COPY .docker/init.sh /usr/local/bin/
