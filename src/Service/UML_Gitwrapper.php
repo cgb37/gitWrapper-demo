@@ -12,7 +12,7 @@ class UML_Gitwrapper {
 
 	public function __construct() {
 		$this->_gitWrapper = new GitWrapper();
-		//$this->_gitWrapper->setPrivateKey('/root/.ssh/id_rsa');
+		$this->_gitWrapper->setPrivateKey('/www-data/.ssh/id_rsa');
 
 
 		$this->_gitWrapper->git('add src/Service/UML_Gitwrapper.php');
