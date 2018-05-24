@@ -10,7 +10,7 @@ use Monolog\Handler\StreamHandler;
 class UML_Gitwrapper {
 
 	public function __construct() {
-		//please
+		
 		$this->_gitWrapper = new GitWrapper();
 		$this->_gitWrapper->setPrivateKey('/var/www/.ssh/id_rsa');
 		$this->_gitWrapper->git('add src/Service/UML_Gitwrapper.php');
