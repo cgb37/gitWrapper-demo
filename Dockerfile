@@ -65,7 +65,7 @@ RUN mkdir -p /root/.ssh
 COPY .docker/id_rsa /root/.ssh/
 COPY .docker/id_rsa.pub /root/.ssh/
 RUN chmod 600 /root/.ssh/id_rsa
-RUN ssh-keyscan -H bitbucket.org >> /root/.ssh/known_hosts
+RUN ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
 #RUN eval "$(ssh-agent -s)"
 #RUN ssh-add /root/.ssh/id_rsa
 #RUN ssh -T git@github.org
@@ -86,6 +86,17 @@ COPY .  /var/www/html/
 # Install zip extension, composer needs it
 RUN sudo docker-php-ext-install zip
 RUN cd /var/www/html/ && composer install && composer dump-autoload && composer update
+
+
+## add user
+
+RUN mkdir /home/www-data
+RUN mkdir -p /www-data/.ssh
+RUN touch /www-data/.ssh/known_hosts
+COPY .docker/id_rsa /www-data/.ssh/
+COPY .docker/id_rsa.pub /www-data/.ssh/
+RUN chmod 600 /www-data/.ssh/id_rsa
+RUN ssh-keyscan -t rsa github.com >> /www-data/.ssh/known_hosts
 
 
 
