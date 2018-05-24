@@ -17,6 +17,7 @@ class UML_Gitwrapper {
 		$this->_gitWrapper->git('commit -m "wip testing keys"');
 		$this->_gitWrapper->git('push');
 
+		//please work
 		// Log to a file named "git.log"
 		$log = new Logger('git');
 		$log->pushHandler(new StreamHandler('var/logs/git.log', Logger::DEBUG));
