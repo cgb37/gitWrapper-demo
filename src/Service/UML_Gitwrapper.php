@@ -8,8 +8,7 @@ use Monolog\Handler\StreamHandler;
 
 
 class UML_Gitwrapper {
-
-
+	
 	public function __construct() {
 		$this->_gitWrapper = new GitWrapper();
 		$this->_gitWrapper->setPrivateKey('/www-data/.ssh/id_rsa');
