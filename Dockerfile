@@ -90,13 +90,13 @@ RUN cd /var/www/html/ && composer install && composer dump-autoload && composer 
 
 ## add user
 
-RUN mkdir /home/www-data
-RUN mkdir -p /www-data/.ssh
-RUN touch /www-data/.ssh/known_hosts
-COPY .docker/id_rsa /www-data/.ssh/
-COPY .docker/id_rsa.pub /www-data/.ssh/
-RUN chmod 600 /www-data/.ssh/id_rsa
-RUN ssh-keyscan -t rsa github.com >> /www-data/.ssh/known_hosts
+#RUN mkdir /home/www-data
+RUN mkdir -p /var/www/.ssh
+RUN touch /var/www/.ssh/known_hosts
+COPY .docker/id_rsa /var/www/.ssh/
+COPY .docker/id_rsa.pub /var/www/.ssh/
+RUN chmod 600 /var/www/.ssh/id_rsa
+RUN ssh-keyscan -t rsa github.com >> /var/www/.ssh/known_hosts
 
 
 
