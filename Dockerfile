@@ -88,9 +88,6 @@ RUN sudo docker-php-ext-install zip
 RUN cd /var/www/html/ && composer install && composer dump-autoload && composer update
 
 
-# Set global git user
-RUN git config --global user.email "webmaster.lib@miami.edu"
-RUN git config --global user.name "WADTeam"
 
 # expose local and network ports
 EXPOSE 2222 80

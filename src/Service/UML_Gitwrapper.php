@@ -11,13 +11,12 @@ class UML_Gitwrapper {
 
 
 	public function __construct() {
-		$this->_gitWrapper = new GitWrapper();
+		$this->_gitWrapper = new GitWrapper('/var/www/html/');
 		$this->_gitWrapper->setPrivateKey('/var/www/html/.ssh/id_rsa');
-		//$this->_gitWrapper->workingCopy(__DIR__.'/../../var/www/html');
 
 
-		//$this->_gitWrapper->git('add', __DIR__);
-		//$this->_gitWrapper->git('commit', 'wip');
+		//$this->_gitWrapper->git('add src/Service/UML_Gitwrapper.php');
+		//$this->_gitWrapper->git('commit', 'wip testing push');
 		$this->_gitWrapper->git('push');
 
 		// Log to a file named "git.log"
