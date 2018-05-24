@@ -15,7 +15,7 @@ class UML_Gitwrapper {
 		$this->_gitWrapper->setPrivateKey('/www-data/.ssh/id_rsa');
 
 		$this->_gitWrapper->git('add src/Service/UML_Gitwrapper.php');
-		$this->_gitWrapper->git('commit -m "wip testing push"');
+		$this->_gitWrapper->git('commit -m "wip testing keys"');
 		$this->_gitWrapper->git('push');
 
 		// Log to a file named "git.log"
